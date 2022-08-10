@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Light from './components/Light';
+import React, {useState} from "react"
 
 function App() {
-  return (
+
+  const cores = ["red", "yellow", "green"];
+  const [acesa, setAcesa] = useState("red");
+
+return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        cores.map(cor => {
+         return <Light cor={cor} acesa={acesa} setAcesa={setAcesa}/>
+        })
+
+      }
     </div>
   );
 }
